@@ -7,3 +7,5 @@
 
 autocmd BufNewFile,BufRead [Mm]ytodo.txt set filetype=mytodo
 
+map <F2> ^r+
+map <F3> ^r-
