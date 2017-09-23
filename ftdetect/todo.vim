@@ -7,4 +7,16 @@
 
 autocmd BufNewFile,BufRead [Mm]ytodo.txt set filetype=mytodo
 
-nnoremap <expr> <F2> matchstr(getline('.'), '\%' . col('.') . 'c.') == '-' ? 'r+':'r-'
+function! TodoToggle()
+  let pos = getpos(".")
+  let c = getline('.')[0:1] 
+  if c == '- '
+      normal! ^r+ 
+  elseif c == '+ '
+      normal! ^r- 
+  endif
+  let pos[2] = pos[2] - 1
+  call setpos('.', pos)
+endfunction
+
+nnoremap <silent> <F2> :call TodoToggle()<cr> 
