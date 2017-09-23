@@ -7,5 +7,4 @@
 
 autocmd BufNewFile,BufRead [Mm]ytodo.txt set filetype=mytodo
 
-map <F2> ^r+
-map <F3> ^r-
+nnoremap <expr> <F2> matchstr(getline('.'), '\%' . col('.') . 'c.') == '-' ? 'r+':'r-'
