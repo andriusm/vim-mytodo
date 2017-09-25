@@ -10,9 +10,17 @@ let b:current_syntax = "mytodo"
 :syn match unsureLine /^\* .*/
 :syn match breakLine /^------*/
 
-hi def todoDate guifg=yellow
-hi def todoLine guifg=lightgreen
-hi def doneLine guifg=grey
-hi def unsureLine guifg=orange
-hi def breakLine guifg=white
+if &background == "dark"
+  hi def todoDate guifg=yellow
+  hi def todoLine guifg=lightgreen
+  hi def doneLine guifg=grey
+  hi def unsureLine guifg=orange
+  hi def breakLine guifg=white
+else
+  hi def todoDate guifg=#268bd2
+  hi def todoLine guifg=#859900
+  hi def doneLine guifg=grey
+  hi def unsureLine guifg=#2aa198
+  hi def breakLine guifg=#6c71c4
+end
 
